@@ -10,7 +10,8 @@ name 'acme_windows_app'
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'acme_windows_app::default'
+run_list 'acme_windows_app::app'
 
 # Specify a custom source for a single cookbook:
 cookbook 'acme_windows_app', path: '.'
+

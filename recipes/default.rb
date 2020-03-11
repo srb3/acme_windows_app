@@ -15,3 +15,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+powershell_script 'xWebAdministration' do
+  code <<-EOH
+    install-packageprovider nuget -force -forcebootstrap
+    install-module xWebAdministration -force -requiredversion 1.10.0.0
+  EOH
+  not_if '(Get-Module xWebAdministration -list) -ne $null'
+end
+
+local_configuration_manager 'Setup defaults'
