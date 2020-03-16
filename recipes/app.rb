@@ -35,3 +35,9 @@ dsc_resource 'New Website' do
     port: 8080)
   property :PhysicalPath, 'c:\sites\ChefAndDsc'
 end
+
+windows_firewall_rule 'IIS_my_site' do
+  local_port '8080'
+  protocol 'TCP'
+  firewall_action :allow
+end
